@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+
+  
+  <title>Git代理配置 | 段希冠的博客</title>
+
+  <link rel="shortcut icon" href="/images/favicon.jpg">
+  <link rel="alternate" href="/atom.xml" title="段希冠的博客" type="application/atom+xml">
+  <meta name="description" content="Git代理配置设置 Git全局代理git config –global http.proxy ‘http:&#x2F;&#x2F;127.0.0.1:2334‘ git config –global https.proxy ‘http:&#x2F;&#x2F;127.0.0.1:2334‘ git config –global http.https:&#x2F;&#x2F;github.com.proxy ‘http:&#x2F;&#x2F;127.0.0.1:2334‘ g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git代理配置">
+<meta property="og:url" content="https://duanxiguan.github.io/2024/11/03/Git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="段希冠的博客">
+<meta property="og:description" content="Git代理配置设置 Git全局代理git config –global http.proxy ‘http:&#x2F;&#x2F;127.0.0.1:2334‘ git config –global https.proxy ‘http:&#x2F;&#x2F;127.0.0.1:2334‘ git config –global http.https:&#x2F;&#x2F;github.com.proxy ‘http:&#x2F;&#x2F;127.0.0.1:2334‘ g">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-03T10:10:10.000Z">
+<meta property="article:modified_time" content="2024-11-04T04:04:34.561Z">
+<meta property="article:author" content="段希冠">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+
+  <meta name="keywords" content=",Git">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="段希冠的博客">
+  <meta name="msapplication-starturl" content="https://duanxiguan.github.io/2024/11/03/Git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="段希冠的博客">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/images/favicon.jpg">
+
+  
+    <link rel="canonical" href="https://duanxiguan.github.io/2024/11/03/Git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/">
+  
+
+  <meta name="google-site-verification" content="fXjtlIfaDc_X-0P11rO3bEp1Nk4IKXphoJv0GqGZCco">
+  <meta name="baidu-site-verification" content="I3t1wfwZvd">
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create','UA-139531378-1','auto');ga('send','pageview');
+</script>
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {var hm = document.createElement('script');
+  hm.src = '//hm.baidu.com/hm.js?22e4d3b73c21ec2f0e1b4f3ff78c9a9c';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+  
+
+  
+<link rel="stylesheet" href="/css/mdui.css">
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/custom.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <script>if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <script>var a=localStorage.getItem("mdui-drawer-close");if(!a){document.getElementsByTagName("body")[0].className+=" mdui-drawer-body-left"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+    <a href="/" class="mdui-typo-headline">段希冠的博客</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: '搜索'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
+  </div>
+</header>
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+  <script>var a=localStorage.getItem("mdui-drawer-close");if(a){document.getElementById("sidebar").className+=" mdui-drawer-close"};</script>
+  <div class="mdui-grid-tile">
+    <img src="/images/banner.jpg" style="height: 160px;">
+    <img src="/images/avatar.jpg" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+    <div class="mdui-grid-tile-actions">
+      <div class="mdui-grid-tile-text">
+        <div class="mdui-grid-tile-title">段希冠</div>
+        <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i>不以物喜，不以已悲。</div>
+      </div>
+      
+        <div class="mdui-grid-tile-buttons">
+          <a href="mailto:380372667@qq.com" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '380372667@qq.com'}"><i class="mdui-icon material-icons">email</i></a>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    <a href="/" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+      <div class="mdui-list-item-content">主页</div>
+    </a>
+    <div class="mdui-collapse-item">
+      <script>var a=localStorage.getItem("mdui-collapse-item-0");if(a){document.getElementsByClassName("mdui-collapse-item")[0].className+=" mdui-collapse-item-open"};</script>
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">archive</i>
+        <div class="mdui-list-item-content">归档</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/archives/2024/11/">十一月 2024<span class="mdui-ripple sidebar_archives-count">3</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <script>var a=localStorage.getItem("mdui-collapse-item-1");if(a){document.getElementsByClassName("mdui-collapse-item")[1].className+=" mdui-collapse-item-open"};</script>
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">class</i>
+        <div class="mdui-list-item-content">分类</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术<span class="mdui-ripple sidebar_archives-count">6</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <script>var a=localStorage.getItem("mdui-collapse-item-2");if(a){document.getElementsByClassName("mdui-collapse-item")[2].className+=" mdui-collapse-item-open"};</script>
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+        <div class="mdui-list-item-content">标签</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/tags/Git/" rel="tag">Git<span class="mdui-ripple sidebar_archives-count">3</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/HomeLab/" rel="tag">HomeLab<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Java/" rel="tag">Java<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Markdown/" rel="tag">Markdown<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/MySql/" rel="tag">MySql<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Self-Hosted/" rel="tag">Self-Hosted<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/tool/" rel="tag">tool<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/web/" rel="tag">web<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <a href="/about" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+      <div class="mdui-list-item-content">关于</div>
+    </a>
+  </div>
+
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    
+      <a href="/timeline" class="mdui-list-item mdui-ripple">时间轴</a>
+    
+      <a href="/tagcloud" class="mdui-list-item mdui-ripple">标签云</a>
+    
+      <a href="/gallery" class="mdui-list-item mdui-ripple">相册</a>
+    
+      <a href="/tv" class="mdui-list-item mdui-ripple">电视直播</a>
+    
+      <a href="/tllb" class="mdui-list-item mdui-ripple">图灵录播</a>
+    
+      <a href="/tlyy" class="mdui-list-item mdui-ripple">图灵音乐</a>
+    
+      <a href="/wdsp" class="mdui-list-item mdui-ripple">我的视频</a>
+    
+      <a href="/wdyy" class="mdui-list-item mdui-ripple">我的音乐</a>
+    
+    <div class="mdui-collapse-item">
+      <script>var a=localStorage.getItem("mdui-collapse-item-3");if(a){document.getElementsByClassName("mdui-collapse-item")[3].className+=" mdui-collapse-item-open"};</script>
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-content">友情链接</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+          <a href="//home.niemingzhao.top" target="_blank" class="mdui-list-item mdui-p-l-2 mdui-text-color-theme-accent mdui-ripple" style="justify-content: center;">自建服务导航</a>
+        
+        
+      </div>
+    </div>
+  </div>
+</aside>
+
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  
+<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <style>#main article .mdui-card-content .text-center{text-align:center!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    <header class="mdui-card-media">
+      <img src="/images/random/material-12.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">Git代理配置</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2024-11-03 / <i class="iconfont">&#xe601;</i> 段希冠 &nbsp;&nbsp; <span id="busuanzi_container_page_pv" style="display: none;"><i class="iconfont">&#xe7fd;</i> <span id="busuanzi_value_page_pv"></span></span></div>
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">发送到手机</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC00lEQVR42u3aSXLbQBAEQP7/0/YLSFV1gzI8SJwUChKYxEGlXl5/Hnm9sLGxsbGxsbGxsW/JfsXX29u9+WR+z/3vkzNjY2Njn83+4U//m0fmr2D23c/3yc+MjY2N/Rz258DYvI72iMmz2jNjY2NjYyeHSOIqeYn5ebCxsbGx21tsSpF3d2hLF2xsbGzsfYMmD56rGv1JZH6xl4aNjY19e/bskf/251+db2NjY2PfmL1aZyxbS7MrD61i+RIbGxv7IHYbHi3y8yubLfckhRA2Njb2c9iz5v61A4bNmuawqYSNjY19EPuqI85Kl3YZaFbGYGNjY5/NnhUJm4FuXgjthxPY2NjYz2FvgmQG2I9162jExsbGfgA7H6+2pcum3Z9H1DDAsLGxsf9zdhtO7WBgM1RuxwN1Lw0bGxv7CPbsYdeu5mwWhorhBDY2Nvah7HaU2z7y2tWftvjBxsbGxk4+mS/WfP5W/mqG38XGxsY+lL1Ztdks3ORhNnuh2NjY2M9hJ//uJ1HRhlm+BJ+3rupBLzY2NvZB7D0sR+bFxmb1BxsbG/tp7PyI7Vg3X+LZN6qG4wFsbGzsI9hXBVIRJ+vFynaVBxsbG/tsdttCyuNnFjz5YlAxWsDGxsY+mt02lZJ1zHxFso3Mdh0TGxsb+2x2GySbts7+mi2JYmNjY5/Nni3Z1OERjwc25Ue9fImNjY19BDtv6MzWMffNprp5lDSVsLGxsQ9it4Pez4z8Du1IIAnUL863sbGxsW/MnrV12pKjjaU2rqI7Y2NjYx/Kvmqw2pYH+8ImL3uwsbGxn8DOx6sz/KwU2Yx166YSNjY29hHsYbMmLj/aQmUzfsbGxsbGviqQZouY+RoQNjY2Nvb3Amy2iLOPvbqphI2NjX0Qe3PrJGbagcQmRL/SS8PGxsa+Mbt9/GxgcNXrSyLz4vk2NjY29o3Zz7mwsbGxsbGxsbGxb3P9Bd+T96ptsCKwAAAAAElFTkSuQmCC">
+              
+            </li>
+          </ul>
+        
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="https://service.weibo.com/share/share.php?appkey=&title=Git代理配置&url=https://duanxiguan.github.io/2024/11/03/Git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/&pic=https://duanxiguan.github.io/images/favicon.jpg&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=Git代理配置&url=https://duanxiguan.github.io/2024/11/03/Git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/&via=段希冠" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://duanxiguan.github.io/2024/11/03/Git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=https://duanxiguan.github.io/2024/11/03/Git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://duanxiguan.github.io/2024/11/03/Git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/&title=Git代理配置" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://connect.qq.com/widget/shareqq/index.html?site=段希冠的博客&title=Git代理配置&pics=https://duanxiguan.github.io/images/favicon.jpg&url=https://duanxiguan.github.io/2024/11/03/Git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=https://duanxiguan.github.io/2024/11/03/Git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/&text=Git代理配置" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+            </li>
+          </ul>
+        
+      </div>
+    </header>
+    <div class="mdui-card-content mdui-typo">
+      <h2 id="Git代理配置"><a href="#Git代理配置" class="headerlink" title="Git代理配置"></a>Git代理配置</h2><h3 id="设置-Git全局代理"><a href="#设置-Git全局代理" class="headerlink" title="设置 Git全局代理"></a>设置 Git全局代理</h3><p>git config –global http.proxy ‘<a target="_blank" rel="noopener" href="http://127.0.0.1:2334/">http://127.0.0.1:2334</a>‘</p>
+<p>git config –global https.proxy ‘<a target="_blank" rel="noopener" href="http://127.0.0.1:2334/">http://127.0.0.1:2334</a>‘</p>
+<p>git config –global http.<a target="_blank" rel="noopener" href="https://github.com.proxy/">https://github.com.proxy</a> ‘<a target="_blank" rel="noopener" href="http://127.0.0.1:2334/">http://127.0.0.1:2334</a>‘</p>
+<p>git config –global https.<a target="_blank" rel="noopener" href="https://github.com.proxy/">https://github.com.proxy</a> ‘<a target="_blank" rel="noopener" href="http://127.0.0.1:2334/">http://127.0.0.1:2334</a>‘</p>
+<p>或者</p>
+<p>git config –global http.proxy ‘socks5:&#x2F;&#x2F;127.0.0.1:2334’</p>
+<p>git config –global https.proxy ‘socks5:&#x2F;&#x2F;127.0.0.1:2334’</p>
+<h3 id="查看-Git全局代理-配置"><a href="#查看-Git全局代理-配置" class="headerlink" title="查看 Git全局代理 配置"></a>查看 Git全局代理 配置</h3><p>git config –global http.proxy</p>
+<p>git config –global https.proxy</p>
+<h3 id="取消-Git全局代理"><a href="#取消-Git全局代理" class="headerlink" title="取消 Git全局代理"></a>取消 Git全局代理</h3><p>git config –global –unset http.proxy</p>
+<p>git config –global –unset https.proxy</p>
+<h3 id="设置-当前项目Git代理"><a href="#设置-当前项目Git代理" class="headerlink" title="设置 当前项目Git代理"></a>设置 当前项目Git代理</h3><p>git config –local http.proxy ‘127.0.0.1:2334’</p>
+<p>git config –local https.proxy ‘127.0.0.1:2334’</p>
+<h3 id="查看-当前项目Git代理-配置"><a href="#查看-当前项目Git代理-配置" class="headerlink" title="查看 当前项目Git代理 配置"></a>查看 当前项目Git代理 配置</h3><p>git config –local http.proxy</p>
+<p>git config –local https.proxy</p>
+<h3 id="取消-当前项目Git代理"><a href="#取消-当前项目Git代理" class="headerlink" title="取消 当前项目Git代理"></a>取消 当前项目Git代理</h3><p>git config –local –unset http.proxy</p>
+<p>git config –local –unset https.proxy</p>
+
+      
+        <div class="mdui-m-y-2 mdui-text-center">
+          <button class="mdui-fab mdui-color-deep-orange mdui-text-color-white mdui-ripple" mdui-dialog="{target: '#donate'}" mdui-tooltip="{content: '打赏', position: 'top'}"><i class="mdui-icon material-icons">thumb_up</i></button>
+        </div>
+      
+      <blockquote>
+        
+          <strong>本文遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 许可协议</strong><br>
+        
+        <strong>本文链接：</strong><br><a href="https://duanxiguan.github.io/2024/11/03/Git%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/">https://duanxiguan.github.io/2024/11/03/Git代理配置/</a>
+      </blockquote>
+    </div>
+    <footer class="mdui-card-actions">
+      
+        <a class="mdui-ripple article_categories-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+      
+      
+        <a class="mdui-ripple article_tags-link" href="/tags/Git/" rel="tag">Git</a>
+      
+    </footer>
+    
+      <div class="mdui-dialog" id="donate">
+        <div class="mdui-tab mdui-tab-centered">
+          
+            <a href="#donate-0" class="mdui-ripple">支付宝</a>
+          
+            <a href="#donate-1" class="mdui-ripple">微信支付</a>
+          
+        </div>
+        
+        
+          <div id="donate-0" class="mdui-p-a-2 mdui-typo mdui-text-center">
+            
+              <img src="/images/alipay.jpg" style="width: 300px;">
+            
+          </div>
+        
+          <div id="donate-1" class="mdui-p-a-2 mdui-typo mdui-text-center">
+            
+              <img src="/images/wechatpay.jpg" style="width: 300px;">
+            
+          </div>
+        
+      </div>
+    
+  </article>
+  
+<script src="//cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+      <a rel="prev" class="extend prev" href="/2024/11/04/MYSQL%20%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        <span class="mdui-p-x-3" mdui-tooltip="{content: 'MYSQL 常见操作'}">上一篇</span>
+      </a>
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/2024/11/03/hello-world/">
+        <span class="mdui-p-x-3" mdui-tooltip="{content: 'Hello World'}">下一篇</span>
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+
+
+
+</main>
+  <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+    
+    
+    
+    
+    
+    
+      <a href="https://github.com/duanxiguan" target="_blank" class="mdui-btn mdui-btn-icon mdui-text-color-theme-a100"><i class="mdui-icon iconfont">&#xe7ab;</i></a>
+    
+    
+    
+    
+    
+      <a href="tencent://message/?uin=380372667&Menu=yes" target="_blank" class="mdui-btn mdui-btn-icon mdui-text-color-theme-a100"><i class="mdui-icon iconfont">&#xe651;</i></a>
+    
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    Copyright &copy; 2016 - 2024 段希冠<br>
+    Powered by <a href="https://hexo.io/" target="_blank" class="mdui-text-color-theme-accent">Hexo</a> | Theme - <a href="https://github.com/niemingzhao/niemingzhao.github.io/tree/theme" target="_blank" class="mdui-text-color-theme-accent">default</a><br>京公网安备<a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502053272" target="_blank" class="mdui-text-color-theme-accent">11010502053272</a>号 | 京ICP备<a href="https://beian.miit.gov.cn" target="_blank" class="mdui-text-color-theme-accent">2023020255</a>号
+    <br>
+      <span id="busuanzi_container_site_pv" style="display: none;"><i class="iconfont">&#xe7fd;</i> <span id="busuanzi_value_site_pv"></span></span> &nbsp;&nbsp;
+      <span id="busuanzi_container_site_uv" style="display: none;"><i class="iconfont">&#xe601;</i> <span id="busuanzi_value_site_uv"></span></span>
+    
+  </div>
+</footer>
+
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="/js/mdui.js"></script>
+<script src="/js/script.js"></script>
+
+  
+<script src="/custom.js"></script>
+
+</body>
+</html>
