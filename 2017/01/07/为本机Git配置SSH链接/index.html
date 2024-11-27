@@ -207,7 +207,7 @@
   <style>#main article .mdui-card-content .text-center{text-align:center!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-17.png" style="max-height: 240px;">
+      <img src="/images/random/material-9.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">为本机Git配置SSH链接</div>
@@ -345,6 +345,25 @@
     
   </nav>
 
+
+  <div id="comment" class="mdui-m-t-5">
+    <div id="gitalk-container"></div>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'Ov23liCETeAlI7NPJZhc',
+    clientSecret: '48a5731e14b3b42e32ad0a53f042ea71ca432517',
+    repo: 'duanxiguan.github.io',
+    owner: 'duanxiguan',
+    admin: ['duanxiguan'],
+    id: 'b709f7a2-2a77-11ea-a744-1f4d64ae768d' || location.pathname,
+    distractionFreeMode: false
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  </div>
 
 
 
