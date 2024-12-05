@@ -1,0 +1,19 @@
+[user]
+	name = duanxiguan
+	email = duanxiguan@126.com
+[http "https://github.com"]
+	proxy = http://127.0.0.1:2334
+[https "https://github.com"]
+	proxy = http://127.0.0.1:2334
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[http "https://npmjs.com"]
+	proxy = http://127.0.0.1:2334
+[https "https://npmjs.com"]
+	proxy = http://127.0.0.1:2334
+
+[http]
+	postBuffer = 100M
